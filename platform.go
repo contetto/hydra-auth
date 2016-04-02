@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"github.com/micro/go-micro/client"
-	"github.com/micro/go-micro/metadata"
 
 	"golang.org/x/net/context"
 )
@@ -65,7 +64,7 @@ func (p *platform) Token() (*Token, error) {
 		return p.t, nil
 	}
 
-	var grantType, refreshToken string
+	/*var grantType, refreshToken string
 
 	// if its nil, ask for new token
 	if p.t == nil {
@@ -74,7 +73,7 @@ func (p *platform) Token() (*Token, error) {
 		// ask for refresh token
 		grantType = "refresh_token"
 		refreshToken = p.t.RefreshToken
-	}
+	}*/
 
 	// @todo Get Token
 
@@ -92,18 +91,19 @@ func (p *platform) Token() (*Token, error) {
 }
 
 func (p *platform) Introspect(ctx context.Context) (*Token, error) {
-	t, ok := p.FromContext(ctx)
-	if !ok {
-		md, kk := metadata.FromContext(ctx)
-		if !kk {
-			return nil, ErrInvalidToken
+	/*
+		t, ok := p.FromContext(ctx)
+			if !ok {
+			md, kk := metadata.FromContext(ctx)
+			if !kk {
+				return nil, ErrInvalidToken
+			}
+			t, ok = p.FromHeader(md)
+			if !ok {
+				return nil, ErrInvalidToken
+			}
 		}
-		t, ok = p.FromHeader(md)
-		if !ok {
-			return nil, ErrInvalidToken
-		}
-	}
-
+	*/
 	// @todo INTROSPECT
 
 	return &Token{

@@ -22,7 +22,7 @@ func Client(c client.Client) Option {
 
 func ID(id string) Option {
 	return func(o *Options) {
-		o.Id = id
+		o.ID = id
 	}
 }
 
